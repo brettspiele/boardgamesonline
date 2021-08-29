@@ -9,7 +9,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "export": "next export",
+    "deploy": "firebase deploy"
   },
   "dependencies": {
     "firebase": "9.0.0-beta.8",
