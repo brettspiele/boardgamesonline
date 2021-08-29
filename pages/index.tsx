@@ -3,7 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import { ImageLoaderProps } from "next/dist/client/image";
-
+import "../vendors/firebase";
 const myLoader = ({ src, width, quality }: ImageLoaderProps): string => {
   return `https://example.com/${src}?w=${width}&q=${quality || 75}`;
 };
