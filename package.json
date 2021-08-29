@@ -2,6 +2,9 @@
   "name": "boardgamesonline",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "npm": "Do NOT use NPM, use yarn instead"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
