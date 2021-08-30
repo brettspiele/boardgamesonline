@@ -2,10 +2,19 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
-import { ImageLoaderProps } from "next/dist/client/image";
 import "../vendors/firebase";
+import { EVENT_TYPES, stateMachine } from "./ares-expedition/stateMachine";
+import { useMachine } from "@xstate/react";
+
+const tests = ["a", "b"];
 
 const Home: NextPage = () => {
+  const [current, send] = useMachine(stateMachine);
+  const { foo } = current.context;
+
+  console.log(current);
+  console.log(foo);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -25,6 +34,16 @@ const Home: NextPage = () => {
         </p>
 
         <div className={styles.grid}>
+          <select
+            onChange={(e) => {
+              console.log(e.target.value);
+              send(EVENT_TYPES.TEST, { name: e.target.value });
+            }}
+          >
+            {tests.map((subreddit) => {
+              return <option key={subreddit}>{subreddit}</option>;
+            })}
+          </select>
           <a href="https://nextjs.org/docs" className={styles.card}>
             <h2>Documentation &rarr;</h2>
             <p>Find in-depth information about Next.js features and API.</p>
