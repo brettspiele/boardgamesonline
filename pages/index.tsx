@@ -4,9 +4,6 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import { ImageLoaderProps } from "next/dist/client/image";
 import "../vendors/firebase";
-const myLoader = ({ src, width, quality }: ImageLoaderProps): string => {
-  return `https://example.com/${src}?w=${width}&q=${quality || 75}`;
-};
 
 const Home: NextPage = () => {
   return (
@@ -66,13 +63,7 @@ const Home: NextPage = () => {
         >
           Powered by{" "}
           <span className={styles.logo}>
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              width={72}
-              height={16}
-              loader={myLoader}
-            />
+            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
           </span>
         </a>
       </footer>
